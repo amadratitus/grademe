@@ -4,6 +4,7 @@
       "runtime": "vercel-php@0.7.0"
     }
   },
+  "runtime": "nodejs18.x",
   "routes": [
     {
       "src": "/(.*)",
