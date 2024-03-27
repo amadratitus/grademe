@@ -16,11 +16,11 @@
                     <form id="addNumbersForm" method="post">
                         <div class="col-12 mb-2">
                             <label for="firstNumber" class="form-label">First Number</label>
-                            <input type="text" class="form-control form-control-sm" id="num1" placeholder="First Number" required>
+                            <input type="number" class="form-control form-control-sm" id="num1" placeholder="First Number" >
                         </div>
                         <div class="col-12 mb-4">
                             <label for="secondNumber" class="form-label">Second Number</label>
-                            <input type="text" class="form-control form-control-sm" id="num2" placeholder="Second Number" required>
+                            <input type="number" class="form-control form-control-sm" id="num2" placeholder="Second Number" >
                         </div> 
                         <div>
                             <button type="submit" class="btn btn-success font-weight-bold d-block mx-auto">Calculate</button>
@@ -42,7 +42,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div class="text-center text-primary fs-4" id="result">54</div>
+            <div class="text-center text-primary fs-4" id="result"></div>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                document.getElementById("result").innerText = "Result: " + data.result;
+                document.getElementById("result").innerText = "Grade: " + data.result;
                 // Show the modal
                 var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
                 myModal.show();
