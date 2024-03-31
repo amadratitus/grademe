@@ -11,7 +11,7 @@
         <!--The card Start-->
         <div class="card rounded shadow " style="width:380px">
             <div class="card-body">
-                <h5 class="card-title text-center text-warning"><strong>Simple  Grade Calculator</strong></h5>
+                <h5 class="card-title text-center text-warning"><strong>Grade Calculator</strong></h5>
                 <div class="text-center text-primary fs-4" id="result"></div>
                 <div class="">
                     <form id="addNumbersForm">
@@ -31,6 +31,20 @@
             </div>
         </div>
         <!--Card Ends-->
+        <!--Modal Start-->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center text-primary fs-4" id="result"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--End Modal-->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -38,20 +52,24 @@
     <script>
         document.getElementById("addNumbersForm").addEventListener("submit", function(event) {
             event.preventDefault();
-
+    
             var form = this;
             var formData = new FormData(form);
-
+    
             fetch('/api/index.php', {
                 method: 'POST',
                 body: formData
             })
             .then(response => response.json())
             .then(data => {
+                // Initialize modal
+                var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+                // Show modal
+                myModal.show();
                 document.getElementById("result").innerText = "Grade: " + data.result;
             })
             .catch(error => console.error('Error:', error));
         });
-    </script>
+    </script>    
 </body>
 </html>
