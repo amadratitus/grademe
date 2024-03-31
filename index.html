@@ -24,7 +24,7 @@
                             <input type="number" class="form-control form-control-sm" id="num2" placeholder="Second Number" >
                         </div> 
                         <div>
-                            <button type="submit" class="btn btn-success font-weight-bold d-block mx-auto">Calculate</button>
+                            <button type="submit" id="submitBtn" class="btn btn-success font-weight-bold d-block mx-auto">Calculate</button>
                         </div>
                     </form>
                 </div>
@@ -52,7 +52,7 @@
     <script>
         document.getElementById("addNumbersForm").addEventListener("submit", function(event) {
             event.preventDefault();
-    
+            document.getElementById("submitBtn").innerText = "Processing...";
             var form = this;
             var formData = new FormData(form);
     
