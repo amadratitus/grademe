@@ -51,7 +51,7 @@
     <script>
         document.getElementById("addNumbersForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            document.getElementById("submitBtn").innerText = "Processing...";
+            document.getElementById("submitBtn").innerText = "Processing ...";
             var form = this;
             var formData = new FormData(form);
     
@@ -66,6 +66,7 @@
                 // Show modal
                 myModal.show();
                 document.getElementById("result").innerText = "Grade: " + data.result;
+                document.getElementById("submitBtn").innerText = "Calculate";
             })
             .catch(error => console.error('Error:', error));
         });
